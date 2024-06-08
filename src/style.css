@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Karla";
+    src: url(./fonts/Karla-Regular.ttf) format("woff2");
+  }
+  @font-face {
+    font-family: "Karla Bold";
+    src: url(./fonts/Karla-Bold.ttf) format("woff2");
+  }
+
+  .checkmark span {
+    display: none;
+  }
+
+  input[type="radio"]:checked + label {
+    border: 1px solid #0c7d69;
+    background-color: #e0f1e8;
+  }
+
+  input[type="radio"]:checked + label .checkmark span {
+    display: inline-block;
+  }
+
+  input[type="radio"]:checked + label .checkmark {
+    border: 1px solid #0c7d69;
+  }
+
+  input[type="checkbox"]:checked + .checkmark {
+    background-color: #0c7d69;
+    border: none;
+  }
+
+  input[type="checkbox"] + .checkmark::after {
+    content: "";
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    display: block;
+  }
+
+  #snackbar {
+    visibility: hidden;
+    height: max-content;
+  }
+
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 4.5s;
+  }
+
+  @-webkit-keyframes fadein {
+    from {
+      bottom: 0;
+      opacity: 0;
+    }
+    to {
+      bottom: 30px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      bottom: 0;
+      opacity: 0;
+    }
+    to {
+      bottom: 30px;
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeout {
+    from {
+      bottom: 30px;
+      opacity: 1;
+    }
+    to {
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeout {
+    from {
+      bottom: 30px;
+      opacity: 1;
+    }
+    to {
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+
+  #snackbar .check {
+    display: inline-block;
+    position: relative;
+  }
+
+  #snackbar .check::after {
+    content: "";
+    position: absolute;
+    top: 2.5px;
+    left: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    display: block;
+  }
+}

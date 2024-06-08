@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="./src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+</head>
+
+<body class="font-karla">
+  <div
+    class="w-full h-full min-h-screen bg-green-200 flex justify-center items-center py-8 px-4 md:py-32 md:px-10 transition-all">
+    <div id="snackbar" class="mx-4 fixed top-6  bg-grey-900   rounded-xl p-6 shadow-lg flex flex-col gap-3">
+      <span class="text-white text-lg font-bold flex gap-2 items-center">
+        <span class="check w-5 h-5 rounded-full border border-white flex justify-center items-center"></span>
+        <span>Message Sent!</span>
+      </span>
+      <span class="text-base text-green-200">Thanks for completing the form. We’ll be in touch soon!</span>
+    </div>
+    <form id="contact-form" class="max-w-[736px] w-full bg-white rounded-2xl p-6 md:p-10 flex flex-col gap-10">
+      <div class="flex flex-col gap-8">
+        <h2 class="font-bold text-2xl text-grey-900">Contact Us</h2>
+        <div class="flex flex-col gap-6">
+          <div class="flex gap-4 max-sm:flex-col">
+            <div class="flex flex-col gap-2 w-1/2 max-sm:w-full">
+              <label for="name-1" class="text-base">
+                <span class="text-grey-900">First Name</span>
+                <span class="text-green-600">*</span>
+              </label>
+              <input type="text" id="name-1"
+                class="shadow h-[51px] border border-grey-500 rounded-lg hover:border-green-600 outline-none focus:border-green-600 transition-all px-6 flex items-center">
+              <span id="name-1-error" class="text-red-error text-sm hidden">This field is required</span>
+            </div>
+            <div class="flex flex-col gap-2 w-1/2 max-sm:w-full">
+              <label for="name-2" class="text-base">
+                <span class="text-grey-900">Last Name</span>
+                <span class="text-green-600">*</span>
+              </label>
+              <input type="text" id="name-2"
+                class="shadow h-[51px] border border-grey-500 rounded-lg hover:border-green-600 outline-none focus:border-green-600 transition-all px-6 flex items-center">
+              <span id="name-2-error" class="text-red-error text-sm hidden">This field is required</span>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2 w-full">
+            <label for="email" class="text-base">
+              <span class="text-grey-900">Email Address</span>
+              <span class="text-green-600">*</span>
+            </label>
+            <input type="text" id="email"
+              class="shadow h-[51px] border border-grey-500 rounded-lg hover:border-green-600 outline-none focus:border-green-600 transition-all px-6 flex items-center">
+            <span id="email-error" class="text-red-error text-sm hidden">Please enter a valid email</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="text-base">
+              <span class="text-grey-900">Query Type</span>
+              <span class="text-green-600">*</span>
+            </div>
+            <div class="flex gap-4 max-sm:flex-col">
+              <input type="radio" id="ge" name="type" class="hidden">
+              <label for="ge"
+                class="group shadow h-[51px] w-1/2 max-sm:w-full border border-grey-500 rounded-lg hover:border-green-600 outline-none focus:border-green-600 focus:bg-green-600 transition-all px-6 flex items-center gap-3">
+                <span class="checkmark w-5 h-5 border border-grey-500 rounded-full flex justify-center items-center">
+                  <span class="w-3 h-3 bg-green-600 rounded-full hidden"></span>
+                </span>
+                <span class="text-lg text-grey-900">General Enquiry</span>
+              </label>
+              <input type="radio" id="sr" name="type" class="hidden">
+              <label for="sr"
+                class="shadow h-[51px] w-1/2 max-sm:w-full border border-grey-500 rounded-lg hover:border-green-600 outline-none focus:border-green-600 transition-all px-6 flex items-center gap-3">
+                <span class="checkmark w-5 h-5 border border-grey-500 rounded-full flex justify-center items-center">
+                  <span class="w-3 h-3 bg-green-600 rounded-full hidden"></span>
+                </span>
+                <span class="text-lg text-grey-900">Support Request</span>
+              </label>
+            </div>
+            <span id="type-error" class="text-red-error text-sm hidden">Please select a query type</span>
+          </div>
+          <div class="flex flex-col gap-2 w-full">
+            <label for="message" class="text-base">
+              <span class="text-grey-900">Message</span>
+              <span class="text-green-600">*</span>
+            </label>
+            <textarea name="message" id="message"
+              class="shadow h-[105px] max-sm:h-[240px] border border-grey-500 rounded-lg hover:border-green-600 outline-none focus:border-green-600 transition-all px-6 py-3 flex items-center"></textarea>
+            <span id="message-error" class="text-red-error text-sm hidden">This field is required</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-2 w-full">
+          <div class="flex items-center gap-4">
+            <input type="checkbox" id="check" class="hidden">
+            <span class="checkmark w-5 h-5 border border-grey-500 flex justify-center items-center"></span>
+            <label for="check">
+              <span class="text-grey-900">I consent to being contacted by the team</span>
+              <span class="text-green-600">*</span>
+            </label>
+
+          </div>
+          <span id="check-error" class="text-red-error text-sm hidden">You must consent to be contacted</span>
+        </div>
+        <button type="submit"
+          class="h-[59px] w-full rounded-lg bg-green-600 text-lg text-white flex justify-center items-center hover:bg-green-900 transition-all">Submit</button>
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.0/dist/alpine.min.js" defer></script>
+  <script type="module" src="./src/main.ts"></script>
+</body>
+
+</html>
